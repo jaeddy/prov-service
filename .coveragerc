@@ -1,7 +1,0 @@
-[run]
-omit =
-    synprov/test/*
-    synprov/models/*
-    synprov/controllers/*
-    synprov/mock/*
-    synprov/encoder.py
