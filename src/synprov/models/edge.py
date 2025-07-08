@@ -1,11 +1,8 @@
-# coding: utf-8
-
-from __future__ import absolute_import
 from datetime import date, datetime  # noqa: F401
 
 from typing import List, Dict  # noqa: F401
 
-from synprov.models.base_model_ import Model
+from synprov.models.base_model import Model
 from synprov import util
 
 
@@ -78,7 +75,7 @@ class Edge(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def id(self):
+    def id(self) -> str:
         """Gets the id of this Edge.
 
 
@@ -88,7 +85,7 @@ class Edge(Model):
         return self._id
 
     @id.setter
-    def id(self, id):
+    def id(self, id: str):
         """Sets the id of this Edge.
 
 
@@ -99,7 +96,7 @@ class Edge(Model):
         self._id = id
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Gets the type of this Edge.
 
 
@@ -109,7 +106,7 @@ class Edge(Model):
         return self._type
 
     @type.setter
-    def type(self, type):
+    def type(self, type: str):
         """Sets the type of this Edge.
 
 
@@ -120,7 +117,7 @@ class Edge(Model):
         self._type = type
 
     @property
-    def start_node(self):
+    def start_node(self) -> str:
         """Gets the start_node of this Edge.
 
 
@@ -130,7 +127,7 @@ class Edge(Model):
         return self._start_node
 
     @start_node.setter
-    def start_node(self, start_node):
+    def start_node(self, start_node: str):
         """Sets the start_node of this Edge.
 
 
@@ -141,7 +138,7 @@ class Edge(Model):
         self._start_node = start_node
 
     @property
-    def end_node(self):
+    def end_node(self) -> str:
         """Gets the end_node of this Edge.
 
 
@@ -151,7 +148,7 @@ class Edge(Model):
         return self._end_node
 
     @end_node.setter
-    def end_node(self, end_node):
+    def end_node(self, end_node: str):
         """Sets the end_node of this Edge.
 
 
@@ -162,7 +159,7 @@ class Edge(Model):
         self._end_node = end_node
 
     @property
-    def properties(self):
+    def properties(self) -> object:
         """Gets the properties of this Edge.
 
 
@@ -172,7 +169,7 @@ class Edge(Model):
         return self._properties
 
     @properties.setter
-    def properties(self, properties):
+    def properties(self, properties: object):
         """Sets the properties of this Edge.
 
 
@@ -183,7 +180,7 @@ class Edge(Model):
         self._properties = properties
 
     @property
-    def source(self):
+    def source(self) -> str:
         """Gets the source of this Edge.
 
 
@@ -193,7 +190,7 @@ class Edge(Model):
         return self._source
 
     @source.setter
-    def source(self, source):
+    def source(self, source: str):
         """Sets the source of this Edge.
 
 
@@ -204,7 +201,7 @@ class Edge(Model):
         self._source = source
 
     @property
-    def target(self):
+    def target(self) -> str:
         """Gets the target of this Edge.
 
 
@@ -214,7 +211,7 @@ class Edge(Model):
         return self._target
 
     @target.setter
-    def target(self, target):
+    def target(self, target: str):
         """Sets the target of this Edge.
 
 
@@ -225,7 +222,7 @@ class Edge(Model):
         self._target = target
 
     @property
-    def linknum(self):
+    def linknum(self) -> int:
         """Gets the linknum of this Edge.
 
 
@@ -235,7 +232,7 @@ class Edge(Model):
         return self._linknum
 
     @linknum.setter
-    def linknum(self, linknum):
+    def linknum(self, linknum: int):
         """Sets the linknum of this Edge.
 
 

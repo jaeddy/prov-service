@@ -1,11 +1,13 @@
 import connexion
-import six
+from typing import Dict
+from typing import Tuple
+from typing import Union
 
-from synprov.models import Activity  # noqa: E501
-from synprov.models import ActivityForm  # noqa: E501
-from synprov.models import Neo4jGraph  # noqa: E501
-from synprov.models import Node  # noqa: E501
-from synprov.models import Reference  # noqa: E501
+from synprov.models.activity import Activity  # noqa: E501
+from synprov.models.activity_form import ActivityForm  # noqa: E501
+from synprov.models.neo4j_graph import Neo4jGraph  # noqa: E501
+from synprov.models.node import Node  # noqa: E501
+from synprov.models.reference import Reference  # noqa: E501
 from synprov import util
 from synprov.graph.controllers import activities_controller as controller
 

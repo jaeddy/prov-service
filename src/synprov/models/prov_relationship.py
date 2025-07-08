@@ -1,11 +1,8 @@
-# coding: utf-8
-
-from __future__ import absolute_import
 from datetime import date, datetime  # noqa: F401
 
 from typing import List, Dict  # noqa: F401
 
-from synprov.models.base_model_ import Model
+from synprov.models.base_model import Model
 from synprov import util
 
 
@@ -68,7 +65,7 @@ class ProvRelationship(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def id(self):
+    def id(self) -> str:
         """Gets the id of this ProvRelationship.
 
 
@@ -78,7 +75,7 @@ class ProvRelationship(Model):
         return self._id
 
     @id.setter
-    def id(self, id):
+    def id(self, id: str):
         """Sets the id of this ProvRelationship.
 
 
@@ -89,7 +86,7 @@ class ProvRelationship(Model):
         self._id = id
 
     @property
-    def start_node(self):
+    def start_node(self) -> str:
         """Gets the start_node of this ProvRelationship.
 
 
@@ -99,7 +96,7 @@ class ProvRelationship(Model):
         return self._start_node
 
     @start_node.setter
-    def start_node(self, start_node):
+    def start_node(self, start_node: str):
         """Sets the start_node of this ProvRelationship.
 
 
@@ -110,7 +107,7 @@ class ProvRelationship(Model):
         self._start_node = start_node
 
     @property
-    def end_node(self):
+    def end_node(self) -> str:
         """Gets the end_node of this ProvRelationship.
 
 
@@ -120,7 +117,7 @@ class ProvRelationship(Model):
         return self._end_node
 
     @end_node.setter
-    def end_node(self, end_node):
+    def end_node(self, end_node: str):
         """Sets the end_node of this ProvRelationship.
 
 
@@ -131,7 +128,7 @@ class ProvRelationship(Model):
         self._end_node = end_node
 
     @property
-    def type(self):
+    def type(self) -> str:
         """Gets the type of this ProvRelationship.
 
 
@@ -141,7 +138,7 @@ class ProvRelationship(Model):
         return self._type
 
     @type.setter
-    def type(self, type):
+    def type(self, type: str):
         """Sets the type of this ProvRelationship.
 
 
@@ -158,7 +155,7 @@ class ProvRelationship(Model):
         self._type = type
 
     @property
-    def start_node_role(self):
+    def start_node_role(self) -> str:
         """Gets the start_node_role of this ProvRelationship.
 
 
@@ -168,7 +165,7 @@ class ProvRelationship(Model):
         return self._start_node_role
 
     @start_node_role.setter
-    def start_node_role(self, start_node_role):
+    def start_node_role(self, start_node_role: str):
         """Sets the start_node_role of this ProvRelationship.
 
 
@@ -179,7 +176,7 @@ class ProvRelationship(Model):
         self._start_node_role = start_node_role
 
     @property
-    def end_node_role(self):
+    def end_node_role(self) -> str:
         """Gets the end_node_role of this ProvRelationship.
 
 
@@ -189,7 +186,7 @@ class ProvRelationship(Model):
         return self._end_node_role
 
     @end_node_role.setter
-    def end_node_role(self, end_node_role):
+    def end_node_role(self, end_node_role: str):
         """Sets the end_node_role of this ProvRelationship.
 
 

@@ -1,13 +1,8 @@
-# coding: utf-8
-
-from __future__ import absolute_import
 from datetime import date, datetime  # noqa: F401
 
 from typing import List, Dict  # noqa: F401
 
-from synprov.models.base_model_ import Model
-from synprov.models.agent1 import Agent1
-from synprov.models.prov_node import ProvNode
+from synprov.models.base_model import Model
 from synprov import util
 
 
@@ -70,7 +65,7 @@ class Agent(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def id(self):
+    def id(self) -> str:
         """Gets the id of this Agent.
 
 
@@ -80,7 +75,7 @@ class Agent(Model):
         return self._id
 
     @id.setter
-    def id(self, id):
+    def id(self, id: str):
         """Sets the id of this Agent.
 
 
@@ -91,7 +86,7 @@ class Agent(Model):
         self._id = id
 
     @property
-    def name(self):
+    def name(self) -> str:
         """Gets the name of this Agent.
 
 
@@ -101,7 +96,7 @@ class Agent(Model):
         return self._name
 
     @name.setter
-    def name(self, name):
+    def name(self, name: str):
         """Sets the name of this Agent.
 
 
@@ -114,7 +109,7 @@ class Agent(Model):
         self._name = name
 
     @property
-    def description(self):
+    def description(self) -> str:
         """Gets the description of this Agent.
 
 
@@ -124,7 +119,7 @@ class Agent(Model):
         return self._description
 
     @description.setter
-    def description(self, description):
+    def description(self, description: str):
         """Sets the description of this Agent.
 
 
@@ -135,7 +130,7 @@ class Agent(Model):
         self._description = description
 
     @property
-    def created_at(self):
+    def created_at(self) -> date:
         """Gets the created_at of this Agent.
 
 
@@ -145,7 +140,7 @@ class Agent(Model):
         return self._created_at
 
     @created_at.setter
-    def created_at(self, created_at):
+    def created_at(self, created_at: date):
         """Sets the created_at of this Agent.
 
 
@@ -156,7 +151,7 @@ class Agent(Model):
         self._created_at = created_at
 
     @property
-    def created_by(self):
+    def created_by(self) -> str:
         """Gets the created_by of this Agent.
 
 
@@ -166,7 +161,7 @@ class Agent(Model):
         return self._created_by
 
     @created_by.setter
-    def created_by(self, created_by):
+    def created_by(self, created_by: str):
         """Sets the created_by of this Agent.
 
 
@@ -177,7 +172,7 @@ class Agent(Model):
         self._created_by = created_by
 
     @property
-    def user_id(self):
+    def user_id(self) -> str:
         """Gets the user_id of this Agent.
 
 
@@ -187,7 +182,7 @@ class Agent(Model):
         return self._user_id
 
     @user_id.setter
-    def user_id(self, user_id):
+    def user_id(self, user_id: str):
         """Sets the user_id of this Agent.
 
 

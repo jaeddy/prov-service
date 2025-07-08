@@ -1,13 +1,8 @@
-# coding: utf-8
-
-from __future__ import absolute_import
 from datetime import date, datetime  # noqa: F401
 
 from typing import List, Dict  # noqa: F401
 
-from synprov.models.base_model_ import Model
-from synprov.models.prov_node import ProvNode
-from synprov.models.reference1 import Reference1
+from synprov.models.base_model import Model
 from synprov import util
 
 
@@ -85,7 +80,7 @@ class Reference(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def id(self):
+    def id(self) -> str:
         """Gets the id of this Reference.
 
 
@@ -95,7 +90,7 @@ class Reference(Model):
         return self._id
 
     @id.setter
-    def id(self, id):
+    def id(self, id: str):
         """Sets the id of this Reference.
 
 
@@ -106,7 +101,7 @@ class Reference(Model):
         self._id = id
 
     @property
-    def name(self):
+    def name(self) -> str:
         """Gets the name of this Reference.
 
 
@@ -116,7 +111,7 @@ class Reference(Model):
         return self._name
 
     @name.setter
-    def name(self, name):
+    def name(self, name: str):
         """Sets the name of this Reference.
 
 
@@ -129,7 +124,7 @@ class Reference(Model):
         self._name = name
 
     @property
-    def description(self):
+    def description(self) -> str:
         """Gets the description of this Reference.
 
 
@@ -139,7 +134,7 @@ class Reference(Model):
         return self._description
 
     @description.setter
-    def description(self, description):
+    def description(self, description: str):
         """Sets the description of this Reference.
 
 
@@ -150,7 +145,7 @@ class Reference(Model):
         self._description = description
 
     @property
-    def created_at(self):
+    def created_at(self) -> date:
         """Gets the created_at of this Reference.
 
 
@@ -160,7 +155,7 @@ class Reference(Model):
         return self._created_at
 
     @created_at.setter
-    def created_at(self, created_at):
+    def created_at(self, created_at: date):
         """Sets the created_at of this Reference.
 
 
@@ -171,7 +166,7 @@ class Reference(Model):
         self._created_at = created_at
 
     @property
-    def created_by(self):
+    def created_by(self) -> str:
         """Gets the created_by of this Reference.
 
 
@@ -181,7 +176,7 @@ class Reference(Model):
         return self._created_by
 
     @created_by.setter
-    def created_by(self, created_by):
+    def created_by(self, created_by: str):
         """Sets the created_by of this Reference.
 
 
@@ -192,7 +187,7 @@ class Reference(Model):
         self._created_by = created_by
 
     @property
-    def target_version_id(self):
+    def target_version_id(self) -> str:
         """Gets the target_version_id of this Reference.
 
 
@@ -202,7 +197,7 @@ class Reference(Model):
         return self._target_version_id
 
     @target_version_id.setter
-    def target_version_id(self, target_version_id):
+    def target_version_id(self, target_version_id: str):
         """Sets the target_version_id of this Reference.
 
 
@@ -215,7 +210,7 @@ class Reference(Model):
         self._target_version_id = target_version_id
 
     @property
-    def target_id(self):
+    def target_id(self) -> str:
         """Gets the target_id of this Reference.
 
 
@@ -225,7 +220,7 @@ class Reference(Model):
         return self._target_id
 
     @target_id.setter
-    def target_id(self, target_id):
+    def target_id(self, target_id: str):
         """Sets the target_id of this Reference.
 
 
@@ -238,7 +233,7 @@ class Reference(Model):
         self._target_id = target_id
 
     @property
-    def _class(self):
+    def _class(self) -> str:
         """Gets the _class of this Reference.
 
 
@@ -248,7 +243,7 @@ class Reference(Model):
         return self.__class
 
     @_class.setter
-    def _class(self, _class):
+    def _class(self, _class: str):
         """Sets the _class of this Reference.
 
 
@@ -259,7 +254,7 @@ class Reference(Model):
         self.__class = _class
 
     @property
-    def subclass(self):
+    def subclass(self) -> str:
         """Gets the subclass of this Reference.
 
 
@@ -269,7 +264,7 @@ class Reference(Model):
         return self._subclass
 
     @subclass.setter
-    def subclass(self, subclass):
+    def subclass(self, subclass: str):
         """Sets the subclass of this Reference.
 
 
