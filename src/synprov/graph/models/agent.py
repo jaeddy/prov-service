@@ -21,7 +21,8 @@ class GraphAgent(Agent):
         self.openapi_types.update({'label': str})
 
     def _find_node(self, graph, label, properties):
-        return graph.nodes.match(label, **properties).first()
+        return graph.nodes_match(label, **properties)
+
 
     def create(self, graph):
         logger.debug('Attempting to create node [{}] with properties: {}'
