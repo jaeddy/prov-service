@@ -6,14 +6,15 @@ import connexion
 import click
 
 from synprov import create_app
-from synprov.config import neo4j_connection as graph
+from synprov.config import driver
+from synprov.graph.neo4j_graph import Neo4jGraph
 from synprov.graph.client import GraphClient
 from synprov.mock.main import create_mock_graph
 
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
+graph = Neo4jGraph(driver)
 
 def init_db(num_activities=30):
     graph.delete_all()
