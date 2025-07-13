@@ -3,10 +3,7 @@ import logging
 import pytest
 import random
 
-from py2neo import Graph
-
 from synprov import create_app
-# from synprov.config import neo4j_connection as graph
 from synprov.config import driver
 from synprov.graph.neo4j_graph import Neo4jGraph
 from synprov.graph.client import GraphClient
@@ -47,8 +44,9 @@ def mock_graph_data(mock_graph):
 
 @pytest.fixture(scope='function')
 def mock_activity_id(mock_graph_data):
-    activity_node = graph.nodes.match('Activity').first()
-    yield activity_node['id']
+    graph = mock_graph_data
+    activity_node = graph.nodes_match('Activity')
+    yield activity_node.data()['n']['id']
 
 
 @pytest.fixture(scope='function')
