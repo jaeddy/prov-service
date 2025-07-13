@@ -41,6 +41,7 @@ class GraphReference(Reference):
             self.created_at = get_datetime()
         else:
             logger.debug("found node: {}".format(node))
-            node_data = dict(node)
-            self.id = dict(node_data)['id']
-            self.created_at = dict(node_data)['created_at']
+            node_data = node.data()['n'] #dict(node)
+            # print(node.data()['n']['id'])
+            self.id = node_data['id']
+            self.created_at = node_data['created_at']
