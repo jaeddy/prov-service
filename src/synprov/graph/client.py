@@ -1,13 +1,7 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-@created: June/24/2019
-@author: madejp
-"""
+
 import logging
 
-from py2neo import Node
-
+from synprov.graph.neo4j_graph import Node
 from synprov.mock.dict import NodeRelationships
 
 
@@ -23,15 +17,12 @@ class GraphClient:
       node_data = prov_object.to_dict()
       label = node_data.pop('label')
       node = Node(
-         label,
-         **node_data
+         n_labels=label,
+         properties=node_data
       )
-
-      node.__primarylabel__ = label
-      node.__primarykey__ = 'id'
-      node_count = len(self.graph.nodes)
+      node_count = len(self.graph.nodes())
       self.graph.merge(node)
-      if len(self.graph.nodes) > node_count:
+      if len(self.graph.nodes()) > node_count:
          logger.info("Created node: {}".format(node))
 
    def create_relationship(self, relationship):
@@ -46,7 +37,7 @@ class GraphClient:
 
       query_base = (
          '''
-         MATCH (s:{start} {{id:{{start_id}}}}), (e:{end} {{id:{{end_id}}}})
+         MATCH (s:{start} {{id:$start_id}}), (e:{end} {{id:$end_id}})
          MERGE (s)-[r:{type} {{{props}}}]->(e)
          RETURN r
          '''
@@ -61,5 +52,5 @@ class GraphClient:
          start_id=start_node,
          end_id=end_node
       )
-      logger.debug("Created relationship: {}".format(results.data()[0]))
+      logger.debug("Created relationship: {}".format(results[0]))
 

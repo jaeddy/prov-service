@@ -3,7 +3,8 @@ import logging
 from random import randrange, sample
 from py2neo import Graph, NodeMatcher
 
-from synprov.config import neo4j_connection as graph
+from synprov.config import driver
+from synprov.graph.neo4j_graph import Neo4jGraph
 from synprov.mock.models.activity import MockActivity
 from synprov.mock.models.agent import MockAgent
 from synprov.mock.models.reference import MockReference
@@ -12,6 +13,7 @@ from synprov.mock.dict import ReferenceSubclasses, ActivityRoles
 
 
 logger = logging.getLogger(__name__)
+graph = Neo4jGraph(driver)
 matcher = NodeMatcher(graph)
 
 
@@ -90,7 +92,7 @@ class ActivityMocker:
             RETURN count(*) as count
             '''
         )
-        return result.data()[0]['count']
+        return result[0]['count']
 
     def count_agts(self):
         result = self.gc.graph.run(
@@ -99,7 +101,7 @@ class ActivityMocker:
             RETURN count(*) as count
             '''
         )
-        return result.data()[0]['count']
+        return result[0]['count']
 
     def add_used(self, limit=3):
         used_refs_data = _unpack_subclass_roles(self.in_subclasses,

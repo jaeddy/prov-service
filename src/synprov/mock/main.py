@@ -4,9 +4,10 @@ import logging
 import argparse
 
 from random import randrange
-from py2neo import Node, NodeMatcher
+from py2neo import NodeMatcher
 
-from synprov.config import neo4j_connection as graph
+from synprov.config import driver
+from synprov.graph.neo4j_graph import Neo4jGraph
 from synprov.mock.models.activity import MockActivity
 from synprov.mock.mocker import ActivityMocker
 from synprov.graph.client import GraphClient
@@ -15,7 +16,7 @@ from synprov.graph.client import GraphClient
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-
+graph = Neo4jGraph(driver)
 matcher = NodeMatcher(graph)
 
 # ------------------------------
@@ -30,7 +31,7 @@ def add_activities(kt):
         RETURN count(*) as count
         '''
     )
-    offset = result.data()[0]['count']
+    offset = result[0]['count']
     x = []
     for i in range(kt):
         tmp = MockActivity(name='Activity_' + str(i+1+offset),
