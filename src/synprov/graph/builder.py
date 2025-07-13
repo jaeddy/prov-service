@@ -2,7 +2,8 @@ import logging
 
 from py2neo import Graph
 
-from synprov.config import neo4j_connection as graph
+from synprov.config import driver
+from synprov.graph.neo4j_graph import Neo4jGraph
 from synprov.models.activity_form import ActivityForm
 from synprov.graph.client import GraphClient
 from synprov.graph.models.activity import GraphActivity
@@ -12,11 +13,11 @@ from synprov.graph.models.relationship import GraphRelationship
 
 
 logger = logging.getLogger(__name__)
-
+graph = Neo4jGraph(driver)
 
 class ActivityBuilder(ActivityForm):
-
-    gdb = GraphClient(graph)
+    graph = Neo4jGraph(driver)
+    gdb = GraphClient(Neo4jGraph(driver))
 
     def __init__(self,
                  name,
@@ -39,7 +40,7 @@ class ActivityBuilder(ActivityForm):
         else:
             activities = graph.run(
                 '''
-                WITH {e_ids} as refs
+                WITH $e_ids as refs
                 MATCH (r:Reference)-[:WASGENERATEDBY]->(act:Activity)
                 WHERE r.target_id in refs
                 WITH act, size(refs) as inputCnt, count(DISTINCT r) as cnt
@@ -47,7 +48,7 @@ class ActivityBuilder(ActivityForm):
                 RETURN act
                 ''',
                 e_ids=[e.target_id for e in self.generated]
-            ).data()
+            )
 
         if len(activities) > 1:
             raise ValueError
