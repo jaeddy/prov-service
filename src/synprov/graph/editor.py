@@ -1,8 +1,7 @@
 import logging
 
-from py2neo import Graph
-
-from synprov.config import neo4j_connection as graph
+from synprov.config import driver
+from synprov.graph.neo4j_graph import Neo4jGraph
 from synprov.models.activity import Activity
 from synprov.graph.client import GraphClient
 from synprov.graph.models.activity import GraphActivity
@@ -12,7 +11,7 @@ from synprov.graph.models.relationship import GraphRelationship
 
 
 logger = logging.getLogger(__name__)
-
+graph = Neo4jGraph(driver)
 
 class ActivityEditor(Activity):
 
@@ -29,11 +28,11 @@ class ActivityEditor(Activity):
         self.openapi_types.update({'activity': object})
 
     def _find_activity(self):
-        return graph.nodes.match('Activity', id=self.id).first()
+        return graph.nodes_match('Activity', id=self.id)
 
     def _find_used_rel(self):
         activity_node = self._find_activity()
-        used_node = graph.nodes.match('Reference', id=self.used.id).first()
+        used_node = graph.nodes_match('Reference', id=self.used.id)
         return graph.match((activity_node, used_node), r_type='USED').first()
 
     def connect_used(self):
