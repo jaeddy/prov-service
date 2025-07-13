@@ -30,15 +30,15 @@ class TestActivityBuilder:
         assert dict(activity)['name'] == mock_activity_form['name']
 
     def test_save_exists(self, mock_graph_data, mock_activity_form):
-        node_count = len(mock_graph_data.nodes)
-        rel_count = len(mock_graph_data.relationships)
+        node_count = len(mock_graph_data.nodes())
+        rel_count = len(mock_graph_data.relationships())
         builder = ActivityBuilder(
             **mock_activity_form
         )
         activity_id = builder.activity.id
         builder.save()
-        assert len(mock_graph_data.nodes) == node_count
-        assert len(mock_graph_data.relationships) == rel_count
+        assert len(mock_graph_data.nodes()) == node_count
+        assert len(mock_graph_data.relationships()) == rel_count
         assert builder.activity.id == activity_id
 
     def test_save_similar(self, mock_graph_data, mock_activity_form):
@@ -51,8 +51,8 @@ class TestActivityBuilder:
                 'subclass': 'State'
             }
     ]
-        node_count = len(mock_graph_data.nodes)
-        rel_count = len(mock_graph_data.relationships)
+        node_count = len(mock_graph_data.nodes())
+        rel_count = len(mock_graph_data.relationships())
         builder = ActivityBuilder(
             **mock_activity_form
         )
@@ -63,13 +63,13 @@ class TestActivityBuilder:
             len(mock_activity_form['generated']),
             len(mock_activity_form['agents']) * 2,
         ])
-        assert len(mock_graph_data.nodes) == node_count + 2
-        assert len(mock_graph_data.relationships) == (rel_count + new_rels)
+        assert len(mock_graph_data.nodes()) == node_count + 2
+        assert len(mock_graph_data.relationships()) == (rel_count + new_rels)
         assert builder.activity.id != activity_id
 
     def test_save_new(self, mock_graph, mock_activity_form):
-        node_count = len(mock_graph.nodes)
-        rel_count = len(mock_graph.relationships)
+        node_count = len(mock_graph.nodes())
+        rel_count = len(mock_graph.relationships())
         builder = ActivityBuilder(
             **mock_activity_form
         )
@@ -87,6 +87,6 @@ class TestActivityBuilder:
             len(mock_activity_form['agents']) * 2,
         ])
 
-        assert len(mock_graph.nodes) == (node_count + new_nodes)
-        assert len(mock_graph.relationships) == (rel_count + new_rels)
+        assert len(mock_graph.nodes()) == (node_count + new_nodes)
+        assert len(mock_graph.relationships()) == (rel_count + new_rels)
         assert builder.activity.id != activity_id
