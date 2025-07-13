@@ -9,7 +9,9 @@ from py2neo import Node, NodeMatcher
 from luqum.parser import parser
 
 from synprov.models.activity import Activity
-from synprov.config import neo4j_connection as graph
+from synprov.config import driver
+from synprov.graph.neo4j_graph import Neo4jGraph
+# from synprov.config import neo4j_connection as graph
 from synprov.graph import ActivityBuilder, ActivityEditor
 from synprov.util import (neo4j_to_d3,
                           neo4j_export,
@@ -19,7 +21,7 @@ from synprov.util import (neo4j_to_d3,
 
 
 logger = logging.getLogger(__name__)
-
+graph = Neo4jGraph(driver)
 
 ATTR_MAP = dict([[v, k] for k, v in Activity().attribute_map.items()])
 
@@ -62,10 +64,9 @@ def create_activity(body=None):  # noqa: E501
         **body.to_dict()
     )
     act_node = builder.save()
-    print(act_node)
     return convert_keys({
-        'id': str(act_node.identity),
-        'labels': list(act_node.labels),
+        'id': str(act_node['id']),
+        'labels': ['Activity'], #list(act_node.labels),
         'properties': dict(act_node)
     })
 
