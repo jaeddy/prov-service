@@ -4,7 +4,7 @@ import os
 import time
 import connexion
 
-from py2neo import Graph
+from neo4j import GraphDatabase
 
 from synprov.util import is_open
 
@@ -28,10 +28,9 @@ neo_pass = os.environ['NEO4J_PASSWORD']
 while not is_open(neo4j_host, neo4j_port):
     time.sleep(1)
 else:
-    neo4j_connection = Graph(
-        scheme=neo4j_scheme,
-        host=neo4j_host,
-        port=neo4j_port,
-        user=neo_user,
-        password=neo_pass
+    driver = GraphDatabase.driver(
+        f'{neo4j_scheme}://{neo4j_host}:{neo4j_port}',
+        auth=(neo_user, neo_pass)
     )
+
+
