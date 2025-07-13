@@ -4,7 +4,7 @@ from random import randrange, sample
 from py2neo import Graph, NodeMatcher
 
 from synprov.config import driver
-from synprov.graph.neo4j_graph import Neo4jGraph
+from synprov.graph.shim import Graph
 from synprov.mock.models.activity import MockActivity
 from synprov.mock.models.agent import MockAgent
 from synprov.mock.models.reference import MockReference
@@ -13,7 +13,7 @@ from synprov.mock.dict import ReferenceSubclasses, ActivityRoles
 
 
 logger = logging.getLogger(__name__)
-graph = Neo4jGraph(driver)
+graph = Graph(driver)
 matcher = NodeMatcher(graph)
 
 

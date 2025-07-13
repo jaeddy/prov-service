@@ -3,7 +3,7 @@ import logging
 from py2neo import Graph
 
 from synprov.config import driver
-from synprov.graph.neo4j_graph import Neo4jGraph
+from synprov.graph.shim import Graph
 from synprov.models.activity_form import ActivityForm
 from synprov.graph.client import GraphClient
 from synprov.graph.models.activity import GraphActivity
@@ -13,11 +13,10 @@ from synprov.graph.models.relationship import GraphRelationship
 
 
 logger = logging.getLogger(__name__)
-graph = Neo4jGraph(driver)
+graph = Graph(driver)
 
 class ActivityBuilder(ActivityForm):
-    graph = Neo4jGraph(driver)
-    gdb = GraphClient(Neo4jGraph(driver))
+    gdb = GraphClient(graph)
 
     def __init__(self,
                  name,

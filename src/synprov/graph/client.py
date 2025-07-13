@@ -1,7 +1,7 @@
 
 import logging
 
-from synprov.graph.neo4j_graph import Node
+from synprov.graph.shim import Node
 from synprov.mock.dict import NodeRelationships
 
 

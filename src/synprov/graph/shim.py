@@ -16,7 +16,7 @@ class Node:
         return f"Node(labels={self.labels}, properties={self.properties})"
 
 
-class Neo4jGraph:
+class Graph:
     def __init__(self, driver):
         self.driver = driver
 

@@ -5,7 +5,7 @@ from typing import Union
 
 from synprov.models.activity import Activity  # noqa: E501
 from synprov.models.activity_form import ActivityForm  # noqa: E501
-from synprov.models.neo4j_graph import Neo4jGraph  # noqa: E501
+from synprov.models.neo4j_graph import Graph  # noqa: E501
 from synprov.models.node import Node  # noqa: E501
 from synprov.models.reference import Reference  # noqa: E501
 from synprov import util

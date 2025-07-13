@@ -5,13 +5,11 @@ import humps
 import json
 import logging
 
-from py2neo import Node, NodeMatcher
 from luqum.parser import parser
 
 from synprov.models.activity import Activity
 from synprov.config import driver
-from synprov.graph.neo4j_graph import Neo4jGraph
-# from synprov.config import neo4j_connection as graph
+from synprov.graph.shim import Graph
 from synprov.graph import ActivityBuilder, ActivityEditor
 from synprov.util import (neo4j_to_d3,
                           neo4j_export,
@@ -21,7 +19,7 @@ from synprov.util import (neo4j_to_d3,
 
 
 logger = logging.getLogger(__name__)
-graph = Neo4jGraph(driver)
+graph = Graph(driver)
 
 ATTR_MAP = dict([[v, k] for k, v in Activity().attribute_map.items()])
 
