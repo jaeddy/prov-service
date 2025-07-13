@@ -36,6 +36,21 @@ class Neo4jGraph:
             query += " RETURN n"
             result = session.run(query, **properties)
             return [record['n'] for record in result]
+        
+
+    def relationships(self, start_label=None, end_label=None, **properties):
+        with self.driver.session() as session:
+            query = "MATCH (s)-[r]->(e)"
+            if start_label:
+                query += f" WHERE s:{start_label}"
+            if end_label:
+                query += f" AND e:{end_label}"
+            if properties:
+                query += " AND " + " AND ".join([f"r.{k} = ${k}" for k in properties.keys()])
+            query += " RETURN r"
+            result = session.run(query, **properties)
+            return [record['r'] for record in result]
+
 
     def nodes_match(self, label, **properties):
         with self.driver.session() as session:
