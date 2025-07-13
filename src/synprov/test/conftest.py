@@ -6,7 +6,9 @@ import random
 from py2neo import Graph
 
 from synprov import create_app
-from synprov.config import neo4j_connection as graph
+# from synprov.config import neo4j_connection as graph
+from synprov.config import driver
+from synprov.graph.neo4j_graph import Neo4jGraph
 from synprov.graph.client import GraphClient
 from synprov.mock.main import create_mock_graph
 
@@ -26,6 +28,7 @@ def client():
 @pytest.fixture(scope='function')
 def mock_graph():
     logger.info("setup: initializing graph database")
+    graph = Neo4jGraph(driver)
     yield graph
 
     logger.info("teardown: deleting graph database records")

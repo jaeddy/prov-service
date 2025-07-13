@@ -6,7 +6,7 @@ from synprov.models.reference import Reference
 from synprov.graph.models.activity import GraphActivity
 from synprov.graph.models.reference import GraphReference
 from synprov.graph.models.agent import GraphAgent
-from synprov.graph.builder import ActivityBuilder
+# from synprov.graph.builder import ActivityBuilder
 
 
 logging.basicConfig(level=logging.DEBUG)
@@ -25,7 +25,7 @@ class TestActivity:
         a = activity._find_node(graph=mock_graph_data,
                                 label='Activity',
                                 properties={'name': 'Activity_1'})
-        assert a['name'] == 'Activity_1'
+        assert a[0]['name'] == 'Activity_1'
 
 
 
