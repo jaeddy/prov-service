@@ -1,9 +1,9 @@
 import uuid
 import json
 
-from synprov.models.activity import Activity
-from synprov.mock.dict import ActivityClasses
-from synprov.util import get_datetime
+from prov_service.models.activity import Activity
+from prov_service.mock.dict import ActivityClasses
+from prov_service.util import get_datetime
 
 
 class MockActivity(Activity):

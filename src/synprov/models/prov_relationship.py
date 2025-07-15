@@ -2,8 +2,8 @@ from datetime import date, datetime  # noqa: F401
 
 from typing import List, Dict  # noqa: F401
 
-from synprov.models.base_model import Model
-from synprov import util
+from prov_service.models.base_model import Model
+from prov_service import util
 
 
 class ProvRelationship(Model):

@@ -10,7 +10,7 @@ import socket
 from functools import wraps
 from hashlib import sha256
 
-from synprov import typing_utils
+from prov_service import typing_utils
 
 def _deserialize(data, klass):
     """Deserializes dict, list, str into an object.

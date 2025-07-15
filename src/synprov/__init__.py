@@ -3,7 +3,7 @@ import connexion
 
 from healthcheck import HealthCheck
 
-from synprov.config import connex_app, driver
+from prov_service.config import connex_app, driver
 
 
 logging.basicConfig(level=logging.INFO)

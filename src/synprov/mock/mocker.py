@@ -3,13 +3,13 @@ import logging
 from random import randrange, sample
 from py2neo import Graph, NodeMatcher
 
-from synprov.config import driver
-from synprov.graph.shim import Graph
-from synprov.mock.models.activity import MockActivity
-from synprov.mock.models.agent import MockAgent
-from synprov.mock.models.reference import MockReference
-from synprov.mock.models.relationship import MockRelationship
-from synprov.mock.dict import ReferenceSubclasses, ActivityRoles
+from prov_service.config import driver
+from prov_service.graph.shim import Graph
+from prov_service.mock.models.activity import MockActivity
+from prov_service.mock.models.agent import MockAgent
+from prov_service.mock.models.reference import MockReference
+from prov_service.mock.models.relationship import MockRelationship
+from prov_service.mock.dict import ReferenceSubclasses, ActivityRoles
 
 
 logger = logging.getLogger(__name__)

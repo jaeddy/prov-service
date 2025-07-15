@@ -1,8 +1,8 @@
 
 import logging
 
-from synprov.graph.shim import Node
-from synprov.mock.dict import NodeRelationships
+from prov_service.graph.shim import Node
+from prov_service.mock.dict import NodeRelationships
 
 
 logger = logging.getLogger(__name__)

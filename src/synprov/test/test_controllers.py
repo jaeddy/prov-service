@@ -1,8 +1,8 @@
 import logging
 import pytest
 
-from synprov.models import ActivityForm
-from synprov.graph.controllers import activities_controller
+from prov_service.models import ActivityForm
+from prov_service.graph.controllers import activities_controller
 
 
 logging.basicConfig(level=logging.DEBUG)

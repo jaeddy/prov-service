@@ -3,7 +3,7 @@
 import sys
 from setuptools import setup, find_packages
 
-NAME = "synprov"
+NAME = "prov_service"
 VERSION = "0.4.0" # TODO: bump this number up after sbcp update
 
 # To install the library, run the following
@@ -31,7 +31,7 @@ setup(
     package_data={'': ['openapi/openapi.yaml']},
     include_package_data=True,
     entry_points={
-        'console_scripts': ['synprov=synprov.__main__:main']},
+        'console_scripts': ['prov_service=prov_service.__main__:main']},
     long_description="""\
     &lt;h1&gt;Platform Repository Service&lt;/h1&gt;&lt;p&gt;Sage Bionetworks Platform&lt;/p&gt;
     """

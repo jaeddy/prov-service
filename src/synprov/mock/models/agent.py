@@ -1,7 +1,7 @@
 import uuid
 
-from synprov.models.agent import Agent
-from synprov.util import get_datetime
+from prov_service.models.agent import Agent
+from prov_service.util import get_datetime
 
 
 class MockAgent(Agent):

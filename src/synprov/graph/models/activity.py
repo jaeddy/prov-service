@@ -2,8 +2,8 @@ import logging
 
 import uuid
 
-from synprov.models.activity import Activity
-from synprov.util import get_datetime
+from prov_service.models.activity import Activity
+from prov_service.util import get_datetime
 
 logger = logging.getLogger(__name__)
 

@@ -3,11 +3,11 @@ import logging
 import pytest
 import random
 
-from synprov import create_app
-from synprov.config import driver
-from synprov.graph.shim import Graph
-from synprov.graph.client import GraphClient
-from synprov.mock.main import create_mock_graph
+from prov_service import create_app
+from prov_service.config import driver
+from prov_service.graph.shim import Graph
+from prov_service.graph.client import GraphClient
+from prov_service.mock.main import create_mock_graph
 
 
 logging.basicConfig(level=logging.DEBUG)

@@ -7,11 +7,11 @@ import logging
 
 from luqum.parser import parser
 
-from synprov.models.activity import Activity
-from synprov.config import driver
-from synprov.graph.shim import Graph
-from synprov.graph import ActivityBuilder, ActivityEditor
-from synprov.util import (neo4j_to_d3,
+from prov_service.models.activity import Activity
+from prov_service.config import driver
+from prov_service.graph.shim import Graph
+from prov_service.graph import ActivityBuilder, ActivityEditor
+from prov_service.util import (neo4j_to_d3,
                           neo4j_export,
                           convert_keys,
                           quote_string,

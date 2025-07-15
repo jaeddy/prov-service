@@ -2,10 +2,10 @@ import uuid
 import json
 import random as r
 
-from synprov.models.prov_relationship import ProvRelationship
-from synprov.mock.dict import (ActivityRoles,
+from prov_service.models.prov_relationship import ProvRelationship
+from prov_service.mock.dict import (ActivityRoles,
                                NodeRelationships)
-from synprov.util import get_datetime
+from prov_service.util import get_datetime
 
 
 class MockRelationship(ProvRelationship):

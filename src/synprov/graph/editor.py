@@ -1,13 +1,13 @@
 import logging
 
-from synprov.config import driver
-from synprov.graph.shim import Graph
-from synprov.models.activity import Activity
-from synprov.graph.client import GraphClient
-from synprov.graph.models.activity import GraphActivity
-from synprov.graph.models.reference import GraphReference
-from synprov.graph.models.agent import GraphAgent
-from synprov.graph.models.relationship import GraphRelationship
+from prov_service.config import driver
+from prov_service.graph.shim import Graph
+from prov_service.models.activity import Activity
+from prov_service.graph.client import GraphClient
+from prov_service.graph.models.activity import GraphActivity
+from prov_service.graph.models.reference import GraphReference
+from prov_service.graph.models.agent import GraphAgent
+from prov_service.graph.models.relationship import GraphRelationship
 
 
 logger = logging.getLogger(__name__)

@@ -1,7 +1,7 @@
 from connexion.apps.flask_app import FlaskJSONEncoder
 import six
 
-from synprov.models.base_model_ import Model
+from prov_service.models.base_model_ import Model
 
 
 class JSONEncoder(FlaskJSONEncoder):

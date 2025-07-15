@@ -6,11 +6,11 @@ import argparse
 from random import randrange
 from py2neo import NodeMatcher
 
-from synprov.config import driver
-from synprov.graph.shim import Graph
-from synprov.mock.models.activity import MockActivity
-from synprov.mock.mocker import ActivityMocker
-from synprov.graph.client import GraphClient
+from prov_service.config import driver
+from prov_service.graph.shim import Graph
+from prov_service.mock.models.activity import MockActivity
+from prov_service.mock.mocker import ActivityMocker
+from prov_service.graph.client import GraphClient
 
 
 logging.basicConfig(level=logging.INFO)

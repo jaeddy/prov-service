@@ -1,8 +1,8 @@
 import logging
 import pytest
 
-from synprov.graph.models.activity import GraphActivity
-from synprov.graph.editor import ActivityEditor
+from prov_service.graph.models.activity import GraphActivity
+from prov_service.graph.editor import ActivityEditor
 
 
 logging.basicConfig(level=logging.DEBUG)

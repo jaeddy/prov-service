@@ -6,7 +6,7 @@ import connexion
 
 from neo4j import GraphDatabase, NotificationMinimumSeverity
 
-from synprov.util import is_open
+from prov_service.util import is_open
 
 
 logging.basicConfig(level=logging.INFO)

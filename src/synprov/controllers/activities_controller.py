@@ -3,13 +3,13 @@ from typing import Dict
 from typing import Tuple
 from typing import Union
 
-from synprov.models.activity import Activity  # noqa: E501
-from synprov.models.activity_form import ActivityForm  # noqa: E501
-from synprov.models.node import Node  # noqa: E501
-from synprov.models.reference import Reference  # noqa: E501
-from synprov import util
-from synprov.graph.shim import Graph  # noqa: E501
-from synprov.graph.controllers import activities_controller as controller
+from prov_service.models.activity import Activity  # noqa: E501
+from prov_service.models.activity_form import ActivityForm  # noqa: E501
+from prov_service.models.node import Node  # noqa: E501
+from prov_service.models.reference import Reference  # noqa: E501
+from prov_service import util
+from prov_service.graph.shim import Graph  # noqa: E501
+from prov_service.graph.controllers import activities_controller as controller
 
 
 def add_activity_used(

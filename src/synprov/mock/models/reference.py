@@ -1,10 +1,10 @@
 import uuid
 import json
 
-from synprov.models.reference import Reference
-from synprov.mock.dict import ReferenceClasses
-from synprov.mock.dict import ReferenceSubclasses
-from synprov.util import get_datetime
+from prov_service.models.reference import Reference
+from prov_service.mock.dict import ReferenceClasses
+from prov_service.mock.dict import ReferenceSubclasses
+from prov_service.util import get_datetime
 
 
 class MockReference(Reference):

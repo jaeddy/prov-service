@@ -2,7 +2,7 @@ import pprint
 
 import typing
 
-from synprov import util
+from prov_service import util
 
 T = typing.TypeVar('T')
 

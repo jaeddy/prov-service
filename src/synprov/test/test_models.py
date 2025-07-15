@@ -1,12 +1,12 @@
 import logging
 import pytest
 
-from synprov.models.activity import Activity
-from synprov.models.reference import Reference
-from synprov.graph.models.activity import GraphActivity
-from synprov.graph.models.reference import GraphReference
-from synprov.graph.models.agent import GraphAgent
-# from synprov.graph.builder import ActivityBuilder
+from prov_service.models.activity import Activity
+from prov_service.models.reference import Reference
+from prov_service.graph.models.activity import GraphActivity
+from prov_service.graph.models.reference import GraphReference
+from prov_service.graph.models.agent import GraphAgent
+# from prov_service.graph.builder import ActivityBuilder
 
 
 logging.basicConfig(level=logging.DEBUG)
