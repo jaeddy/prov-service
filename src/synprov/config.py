@@ -4,7 +4,7 @@ import os
 import time
 import connexion
 
-from neo4j import GraphDatabase
+from neo4j import GraphDatabase, NotificationMinimumSeverity
 
 from synprov.util import is_open
 
@@ -30,7 +30,8 @@ while not is_open(neo4j_host, neo4j_port):
 else:
     driver = GraphDatabase.driver(
         f'{neo4j_scheme}://{neo4j_host}:{neo4j_port}',
-        auth=(neo_user, neo_pass)
+        auth=(neo_user, neo_pass),
+        # notifications_min_severity=NotificationMinimumSeverity.OFF,
     )
 
 
