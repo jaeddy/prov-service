@@ -2,18 +2,21 @@
 
 Lightweight implementation of the Synapse Activity services, based on the PROV spec.
 
+> [!CAUTION]
+> This project is exploratory in nature and under construction.
+
 ## Overview
 
-This is an OpenAPI-enabled (and documented) Flask server. This example uses the [Connexion](https://github.com/zalando/connexion) library on top of Flask. The [py2neo]() driver library for Python is used to manage operations between RESTful API requests/responses and a Neo4j database.
+This is an OpenAPI-enabled (and documented) Flask server. The app uses the [**Connexion**](https://github.com/zalando/connexion) library with Flask to connect the underlying API specification to server routes and operations. The [**`neo4j`**](https://github.com/neo4j/neo4j-python-driver) driver library for Python is used to manage operations between RESTful API requests/responses and a Neo4j database.
 
 
 ## Requirements
 
 + Python 3.9+ (should be taken care of with `uv`)
-+ uv
-+ docker
++ uv (see [installation instructions](https://docs.astral.sh/uv/getting-started/installation/))
++ docker (optional but recommended)
 
-You should have access to a local installation of Neo4j, serving at `bolt://localhost/7687`<sup>*</sup>.
+You should have access to a local installation of Neo4j, serving at `bolt://localhost/7687`.
 
 <sup>*</sup>*You can set up a Neo4j database instance using the provided `docker-compose.yml` file, following the instructions below.
 
@@ -46,17 +49,17 @@ To run the server, you can use this command (from the root directory):
 uv run prov-service
 ```
 
-> [!WARN]
+> [!WARNING]
 > The `--mock_db` option is not currently working as expected: the graph database will still be populated with representative activities, but each activity will be fully disconnected from the others.
 
 To initialize the graph database with mock activity records, you can run the app with additional parameters:
 ```shell
-prov-service --mock_db --db_size 30
+uv run prov-service --mock_db --db_size 30
 ```
 
 To view the full set of parameters:
 ```shell
-prov-service --help
+uv run prov-service --help
 ```
 
 ```shell
@@ -79,6 +82,7 @@ http://localhost:8080/rest/v1/ui/
 ```
 
 *If the above URL doesn't work, try this instead:*
+
 ```
 http://0.0.0.0:8080/rest/v1/ui/
 ```
