@@ -106,7 +106,12 @@ def create_activity(
 ```
 
 + [`models/`](../src/prov_service/models/): auto-generated code—no obvious reason to mess with these classes
-+ [`graph/`](../src/prov_service/graph/): _manually authored (by me)_, internal/core controllers and models for interacting with a graph database
++ [`graph/`](../src/prov_service/graph/): _manually authored (by me, mostly, with some contributions from collaborators)_, internal/core controllers and models for interacting with a graph database
+
+> [!INFO]
+> This is where most of the interesting stuff happens. Some of it is a bit broken with the migration from `py2neo` to `neo4j`, but the overall setup is functional. For ongoing usage, this is where most of the development attention should be focused within this package.
+
+
 + [`mock/`](../src/prov_service/mock/): _manually authored (by collaborator)_, assorted classes to populate a graph with represenative nodes and relationships based on a predefined data model (found in [`mock/dict.py`](../src/prov_service/mock/dict.py))
 
 ### Other modules:
@@ -160,6 +165,8 @@ Once the server is running (using the `uv` command above), we can interact with 
 http://localhost:8080/rest/v1/ui/
 ```
 
+If we scroll down to the `POST /activities` section, there should be an option to "Try it out"—clicking this button should expose a screen that looks like this (with an "Execute" button).
+
 ![demo post request](../img/postdemo.png)
 
 
@@ -173,16 +180,22 @@ http://localhost:7474
 
 By running the Cypher query below in Neo4j, we can see the graph corresponding to the created activity.
 
+```cypher
+MATCH (n)-[r]-(m) RETURN n, r, m
+```
+
 ![demo neo4j graph](../img/graphdemo.png)
 
 > [!CAUTION]
-> Unforunately, the query functionality available through various `GET` endopints does not seem to be working.
+> Unforunately, the query functionality available through various `GET` endopints does not seem to be working. This bug will hopefully be corrected in future versions.
 
 ## Future Directions
 
 A few thoughts for where I might try to take this package, if presented with good reasons to continue maintaing it:
 
-* I was hoping to build and test a more direct connection with the nf-prov plugin for Nextflow pipelines. In the interest of time, I converted the output of their demo pipeline from BCO format into a compatible JSON.
+* Addressing all of the limitations enumerated in the **Preface**...
+* I was hoping to build and test a more direct connection with the [`nf-prov` plugin](https://github.com/nextflow-io/nf-prov) for Nextflow pipelines. Whether on the server or client side, I'd like to provide some sort of adapter between the `nf-prov`'s preffered format (which appears to be either a [BioCompute Object (BCO)](https://biocomputeobject.org/) or a more generic directed acyclic graph) and the models used by this service.
 * Related to the previous point, it would be worth creating a dedicated API _client_ package that could be called via a pipeline or plug-in to submit requests to the provenance service.
+* It would be fun to extract (and update) the UI elements I previously built as part of a [portal project](https://github.com/Sage-Bionetworks/sagebio-collaboration-portal/tree/develop/client/), and try to provide a more generic and re-usable widget for creating and viewing provenance records.
 
 
